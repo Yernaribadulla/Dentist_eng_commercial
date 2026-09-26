@@ -211,7 +211,7 @@ html.js [data-reveal="lines"].is-in .ln>span{transform:none}
 .checks li{display:flex;gap:10px;align-items:flex-start}
 .checks .i{margin-top:.2em;color:var(--accent)}
 .plate{position:relative;order:-1;aspect-ratio:4/3;overflow:hidden;border-radius:2px;background:linear-gradient(135deg,#b8c8cf,#5d7682)}
-.plate-img{position:absolute;inset:-6% 0;background:url('assets/hero-clinic.jpg') center/cover no-repeat,linear-gradient(135deg,#b8c8cf,#5d7682);transform:translate3d(0,var(--py,0px),0) scale(1.04);will-change:transform}
+.plate-img{position:absolute;inset:-6% 0;background:url('assets/dental.jpg') center/cover no-repeat,linear-gradient(135deg,#b8c8cf,#5d7682);transform:translate3d(0,var(--py,0px),0) scale(1.04);will-change:transform}
 .plate figcaption{position:absolute;inset:auto 0 0 0;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:8px;padding:12px}
 .chip{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;background:var(--surface);color:var(--ink);font-size:13px;line-height:1.3;border-radius:2px}
 .chip b{font-weight:600}
@@ -249,10 +249,10 @@ html.js [data-reveal="lines"].is-in .ln>span{transform:none}
 .slat.is-active::before{transform:scale(1)}
 .slat.is-active::after{opacity:0}
 .slat-cap{position:absolute;left:12px;bottom:12px;max-width:calc(100% - 24px);padding:7px 11px;background:var(--surface);color:var(--ink);font-size:13px;line-height:1.3;border-radius:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;z-index:1}
-.slat[data-slat="0"]{--img:url('assets/clinic-space.jpg');--fb:linear-gradient(140deg,#b7c6cc,#66808b)}
+.slat[data-slat="0"]{--img:url('assets/consul.jpg');--fb:linear-gradient(140deg,#b7c6cc,#66808b)}
 .slat[data-slat="1"]{--img:url('assets/hero-clinic.jpg');--fb:linear-gradient(140deg,#c4cdd0,#7d8e95)}
-.slat[data-slat="2"]{--img:url('assets/dental-detail.jpg');--fb:linear-gradient(140deg,#aebfc6,#4d6672)}
-.slat[data-slat="3"]{--img:url('assets/clinic-space.jpg');--pos:80% 50%;--fb:linear-gradient(140deg,#bfcbc9,#6f8582)}
+.slat[data-slat="2"]{--img:url('assets/labo.jpg');--fb:linear-gradient(140deg,#aebfc6,#4d6672)}
+.slat[data-slat="3"]{--img:url('assets/restore.jpg');--pos:80% 50%;--fb:linear-gradient(140deg,#bfcbc9,#6f8582)}
 @media (min-width:900px){
   .about-grid{grid-template-columns:minmax(0,5fr) minmax(0,6fr)}
   .about-grid .h2{position:sticky;top:64px}
