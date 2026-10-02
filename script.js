@@ -16,7 +16,7 @@
     }
     html.dataset.theme = next;
     try { localStorage.setItem('dentara-theme', next); } catch (e) {}
-    themeToggles.forEach(btn => btn.setAttribute('aria-label', next === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему'));
+    themeToggles.forEach(btn => btn.setAttribute('aria-label', next === 'dark' ? 'Enable light theme' : 'Enable dark theme'));
   }
   themeToggles.forEach(btn => btn.addEventListener('click', () => {
     setTheme(html.dataset.theme === 'dark' ? 'light' : 'dark');
@@ -28,7 +28,7 @@
     try { stored = localStorage.getItem('dentara-theme'); } catch (err) {}
     if (stored !== 'dark' && stored !== 'light') setTheme(e.matches ? 'dark' : 'light', { animate: false });
   });
-  themeToggles.forEach(btn => btn.setAttribute('aria-label', html.dataset.theme === 'dark' ? 'Включить светлую тему' : 'Включить тёмную тему'));
+  themeToggles.forEach(btn => btn.setAttribute('aria-label', html.dataset.theme === 'dark' ? 'Enable light theme' : 'Enable dark theme'));
 
   /* ---------------------------------------------------------------------
      Mobile menu
@@ -269,19 +269,19 @@
   --------------------------------------------------------------------- */
   const DIRECTIONS = [
     {
-      tag: 'ОРТОДОНТИЯ', title: 'Планирование прикуса',
-      summary: 'Исправление прикуса и планирование ортодонтического лечения.',
-      items: ['Планирование прикуса', 'Цифровая диагностика', 'Ортодонтическое лечение', 'Индивидуальный план лечения'],
+      tag: 'ORTHODONTICS', title: 'Bite planning',
+      summary: 'Bite correction and orthodontic treatment planning.',
+      items: ['Bite planning', 'Digital diagnostics', 'Orthodontic treatment', 'Individual treatment plan'],
     },
     {
-      tag: 'ХИРУРГИЯ', title: 'Хирургическое сопровождение',
-      summary: 'Имплантация и хирургическое сопровождение лечения.',
-      items: ['Имплантация', 'Хирургическое сопровождение', 'Подготовка к имплантации', 'Восстановление'],
+      tag: 'SURGERY', title: 'Surgical support',
+      summary: 'Implantology and surgical support for treatment.',
+      items: ['Implantology', 'Surgical support', 'Implant preparation', 'Recovery'],
     },
     {
-      tag: 'ЭСТЕТИКА', title: 'Цифровая улыбка',
-      summary: 'Эстетические процедуры и цифровое планирование улыбки.',
-      items: ['Дизайн улыбки', 'Цифровое планирование', 'Эстетическая реставрация', 'Визуализация результата'],
+      tag: 'AESTHETICS', title: 'Digital smile',
+      summary: 'Aesthetic procedures and digital smile planning.',
+      items: ['Smile design', 'Digital planning', 'Aesthetic restoration', 'Result preview'],
     },
   ];
   const dirGlyphs = [
@@ -298,7 +298,7 @@
           <span class="dir-tag">${d.tag}</span>
           <span class="dir-title">${d.title}</span>
           <span class="dir-sum">${d.summary}</span>
-          <span class="dir-cta">Открыть направление <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+          <span class="dir-cta">Open direction <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></span>
         </span>
       </button>`).join('');
   }
@@ -362,7 +362,7 @@
       const card = e.target.closest('[data-direction]');
       if (!card) return;
       const d = DIRECTIONS[Number(card.dataset.direction)];
-      doctorModal.querySelector('.modal-eyebrow').textContent = `${d.tag} / НАПРАВЛЕНИЕ`;
+      doctorModal.querySelector('.modal-eyebrow').textContent = `${d.tag} / DIRECTION`;
       doctorModal.querySelector('#direction-title').textContent = d.title;
       doctorModal.querySelector('.bio').textContent = d.summary;
       doctorModal.querySelector('.bio-list').innerHTML = d.items.map(t => `<li>${t}</li>`).join('');
@@ -379,7 +379,7 @@
   const bookingStepLabel = bookingModal?.querySelector('.booking-step');
   const bookingProgress = bookingModal?.querySelector('.booking-progress i');
   const bookingBack = bookingModal?.querySelector('.back');
-  const TOPICS = ['Консультация', 'Имплантация', 'Ортодонтия', 'Дизайн улыбки', 'Профилактика'];
+  const TOPICS = ['Consultation', 'Implantology', 'Orthodontics', 'Smile design', 'Preventive care'];
   const booking = { topic: null, name: '', phone: '' };
 
   function renderStep(step, dir = 1) {
@@ -394,27 +394,27 @@
 
     if (step === 1) {
       bookingBody.innerHTML = `
-        <h2>Что вас<span class="soft"> интересует?</span></h2>
+        <h2>What are you<span class="soft"> interested in?</span></h2>
         <div class="choice-list">${TOPICS.map(t => `<button class="choice" type="button" data-topic="${t}">${t} <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>`).join('')}</div>`;
     } else if (step === 2) {
       bookingBody.innerHTML = `
-        <h2>Почти<span class="soft"> готово.</span></h2>
-        <p class="summary">Направление: ${booking.topic}</p>
-        <label class="field">Ваше имя
-          <input type="text" name="name" autocomplete="name" placeholder="Имя и фамилия" value="${booking.name}">
+        <h2>Almost<span class="soft"> ready.</span></h2>
+        <p class="summary">Direction: ${booking.topic}</p>
+        <label class="field">Your name
+          <input type="text" name="name" autocomplete="name" placeholder="First and last name" value="${booking.name}">
         </label>
-        <label class="field">Телефон
+        <label class="field">Phone
           <input type="tel" name="phone" autocomplete="tel" placeholder="+7 700 000 00 00" value="${booking.phone}">
           <span class="field-error" aria-live="polite"></span>
         </label>
-        <button class="btn confirm" type="button">Подтвердить запись <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>`;
+        <button class="btn confirm" type="button">Confirm booking <svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></button>`;
     } else if (step === 3) {
       bookingBody.innerHTML = `
-        <h2>Заявка<span class="soft"> принята.</span></h2>
-        <p class="summary">Мы свяжемся с вами в течение 15 минут, чтобы подтвердить удобное время.</p>
+        <h2>Request<span class="soft"> received.</span></h2>
+        <p class="summary">We will contact you within 15 minutes to confirm a convenient time.</p>
         <dl class="facts" style="margin-top:8px">
-          <div><dt>Направление</dt><dd>${booking.topic}</dd></div>
-          <div><dt>Контакт</dt><dd>${booking.name || '—'}, ${booking.phone || '—'}</dd></div>
+        <div><dt>Direction</dt><dd>${booking.topic}</dd></div>
+          <div><dt>Contact</dt><dd>${booking.name || '—'}, ${booking.phone || '—'}</dd></div>
         </dl>`;
     }
   }
@@ -432,13 +432,13 @@
       booking.phone = phoneInput.value.trim();
       if (!phoneOk) {
         phoneInput.setAttribute('aria-invalid', 'true');
-        errorEl.textContent = 'Укажите номер телефона, чтобы мы могли связаться с вами.';
+        errorEl.textContent = 'Please enter a phone number so we can contact you.';
         phoneInput.focus();
         return;
       }
       phoneInput.removeAttribute('aria-invalid');
       goToStep(3, 1);
-      showToast('Заявка принята — мы свяжемся с вами в течение 15 минут.');
+      showToast('Request received — we will contact you within 15 minutes.');
     }
   });
   bookingBack?.addEventListener('click', () => {
@@ -467,9 +467,9 @@
      Smile preview — illustrative SVG only, mood swatches
   --------------------------------------------------------------------- */
   const MOODS = [
-    { name: 'Natural', label: 'Естественная', tooth: '#efe6d8', tint: '#e7e1d6' },
-    { name: 'Bright', label: 'Яркая', tooth: '#fbf7ee', tint: '#eef1ee' },
-    { name: 'Warm', label: 'Тёплая', tooth: '#f2e3c9', tint: '#f0e6d2' },
+    { name: 'Natural', label: 'Natural', tooth: '#efe6d8', tint: '#e7e1d6' },
+    { name: 'Bright', label: 'Bright', tooth: '#fbf7ee', tint: '#eef1ee' },
+    { name: 'Warm', label: 'Warm', tooth: '#f2e3c9', tint: '#f0e6d2' },
   ];
   const swatchWrap = doc.querySelector('.swatches');
   const smileSvg = doc.querySelector('.smile-svg');
@@ -527,3 +527,5 @@
     scanEl?.classList.add('is-in');
   }
 })();
+
+
