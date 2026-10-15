@@ -195,9 +195,9 @@ test("motion can be paused, persists and respects a live reduced-motion change",
   await ready(page);
   expect(
     await page
-      .locator(".portrait-seal svg")
+      .locator(".scan-svg .sweep")
       .evaluate((node) => getComputedStyle(node).animationName),
-  ).toBe("seal-turn");
+  ).toBe("sweep");
   await page.locator("[data-motion-toggle]").first().click();
   await expect(page.locator("html")).toHaveClass(/motion-paused/);
   await page.reload();

@@ -7,7 +7,7 @@
     "start": "node scripts/serve.js",
     "test": "node --test tests/*.test.js",
     "test:browser": "playwright test",
-    "format:check": "prettier --check index.html styles.css editorial.css script.js src scripts tests playwright.config.js package.json .github/workflows/checks.yml"
+    "format:check": "prettier --check index.html styles.css editorial.css studio.css script.js src scripts tests playwright.config.js package.json .github/workflows/checks.yml"
   },
   "engines": {
     "node": ">=22"

@@ -1,0 +1,355 @@
+/* DENTARA studio: warm paper, wine ink, and square image windows. */
+:root {
+  --sans: "DM Sans", "Segoe UI", sans-serif;
+  --on-accent: #fffaf4;
+  --gutter: clamp(22px, 5vw, 88px);
+}
+[data-theme="dark"] {
+  --on-accent: #261a1d;
+}
+html {
+  scroll-padding-top: 100px;
+}
+.brand {
+  font-size: 19px;
+  letter-spacing: 0.14em;
+}
+.btn,
+.menu-btn {
+  border-radius: 3px;
+}
+.btn {
+  min-height: 56px;
+  padding-inline: 25px;
+}
+.icon-btn {
+  border-radius: 50%;
+}
+.hero-editorial {
+  padding-top: 112px;
+  min-height: 850px;
+}
+.hero-editorial .hero-meta {
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+  padding-right: 0;
+}
+.hero-meta > .brand {
+  display: none;
+}
+.hero-meta-location,
+.hero-explore {
+  font-size: 11px;
+}
+.hero-stage {
+  grid-template-columns: 1.1fr 1fr;
+  gap: 6%;
+  padding-block: 42px;
+}
+.hero-content .display {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(4.5rem, 7.5vw, 8.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.035em;
+  margin-block: 28px;
+}
+.hero-serif {
+  font-size: 0.8em;
+  line-height: 1.3;
+  padding-top: 8px;
+}
+.hero-content .lead {
+  font-size: 15px;
+  max-width: 36ch;
+  line-height: 1.8;
+}
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+.hero-services {
+  font-size: 12px;
+}
+.hero-portrait {
+  padding: 0 0 25px;
+  align-self: center;
+}
+.hero-photo-wrap {
+  height: clamp(420px, 39vw, 620px);
+  border-radius: 2px;
+}
+.hero-photo {
+  object-position: center;
+}
+.hero-portrait::before {
+  content: "";
+  position: absolute;
+  inset: 22px -18px 24px 22px;
+  border: 1px solid var(--line);
+  z-index: -1;
+}
+.hero-portrait figcaption {
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  margin-top: 16px;
+}
+.hero-assurance {
+  max-width: 360px;
+  margin-top: 36px;
+}
+.assurance-mark {
+  font: 400 32px var(--serif);
+}
+.hero-assurance p {
+  font-size: 12px;
+  line-height: 1.8;
+}
+.hero-bottom {
+  font-size: 10px;
+  padding-block: 18px;
+}
+.hero-bottom .motion-toggle {
+  min-height: 44px;
+  font-size: 11px;
+}
+.care-principles {
+  border-block: 1px solid var(--line);
+  background: var(--surface);
+}
+.care-principles .section-note {
+  font-size: 11px;
+}
+.care-principles .metric dd {
+  font-size: 42px;
+}
+.care-principles .metric dd span {
+  font-size: 12px;
+  line-height: 1.7;
+}
+.care-principles .metric dt {
+  font-size: 15px;
+}
+.h2 {
+  font-family: var(--serif);
+  font-weight: 400;
+  font-size: clamp(3.4rem, 5.8vw, 6.5rem);
+  letter-spacing: -0.03em;
+}
+.soft {
+  color: var(--accent);
+}
+.lead-serif {
+  font-family: var(--sans);
+  font-size: clamp(1.1rem, 1.5vw, 1.35rem);
+  line-height: 1.9;
+}
+.slats {
+  border-radius: 0;
+  grid-template-rows: minmax(0, 1fr) 82px;
+  gap: 6px;
+}
+.slat {
+  border-radius: 0;
+}
+.slat-cap {
+  font-size: 11px;
+}
+.services {
+  background: var(--surface);
+  border-block: 1px solid var(--line);
+}
+.svc-name {
+  font-family: var(--serif);
+  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-weight: 400;
+}
+.svc-btn {
+  padding-block: 27px;
+}
+.svc-n {
+  color: var(--accent);
+}
+.dir-grid {
+  gap: 18px;
+  border-top: 0;
+}
+.dir {
+  border: 1px solid var(--line);
+  min-height: 320px;
+  background: var(--surface);
+}
+.dir-title {
+  font: 400 clamp(2rem, 3vw, 3rem)/1.1 var(--serif);
+}
+.scan,
+.contact-visual {
+  border-radius: 0;
+}
+.contact-visual figcaption {
+  background: #44272c;
+  font-size: 11px;
+}
+.smile-label {
+  color: #44272c;
+}
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 5px;
+}
+@media (min-width: 1100px) {
+  body {
+    padding-left: 0;
+  }
+  .rail {
+    inset: 0 0 auto;
+    width: 100%;
+    height: 88px;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 36px;
+    padding: 0 var(--gutter);
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand-v {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 19px;
+  }
+  .rail-nav {
+    margin-left: auto;
+    margin-right: 235px;
+  }
+  .rail-nav ol {
+    flex-direction: row;
+    display: flex;
+    gap: 24px;
+  }
+  .rail-nav a {
+    width: auto;
+    height: 44px;
+  }
+  .rail-nav .n,
+  .rail-nav .tick {
+    display: none;
+  }
+  .rail-nav .tip {
+    position: static;
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+    background: none;
+    color: var(--ink);
+    padding: 0;
+    font-size: 12px;
+  }
+  .rail-nav li:nth-child(3),
+  .rail-nav li:nth-child(4),
+  .rail-nav li:nth-child(5) {
+    display: none;
+  }
+  .rail-nav a.active .tip {
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  .rail > .icon-btn {
+    position: absolute;
+    right: calc(var(--gutter) + 165px);
+  }
+  .float-cta {
+    z-index: 51;
+    top: 20px;
+    right: var(--gutter);
+    min-height: 48px;
+    border-radius: 3px;
+  }
+}
+@media (max-width: 1099px) {
+  .hero-editorial {
+    min-height: auto;
+    padding-top: 108px;
+  }
+  .hero-content .display {
+    font-size: clamp(3.8rem, 7.5vw, 6rem);
+  }
+  .hero-stage {
+    gap: 30px;
+  }
+  .hero-photo-wrap {
+    height: 490px;
+  }
+}
+@media (max-width: 700px) {
+  .hero-stage {
+    grid-template-columns: 1fr;
+    padding-block: 25px;
+    gap: 38px;
+  }
+  .hero-content .display {
+    font-size: clamp(3.7rem, 13.8vw, 6rem);
+    margin-block: 22px;
+  }
+  .hero-content .lead {
+    font-size: 15px;
+  }
+  .hero-content .actions {
+    gap: 18px;
+    flex-wrap: wrap;
+  }
+  .hero-content .btn {
+    font-size: 13px;
+  }
+  .hero-services {
+    font-size: 12px;
+  }
+  .hero-assurance {
+    display: none;
+  }
+  .hero-portrait {
+    padding: 0 12px 0 0;
+  }
+  .hero-photo-wrap {
+    height: 410px;
+    border-radius: 0;
+  }
+  .hero-portrait::before {
+    inset: 15px 0 26px 15px;
+  }
+  .hero-portrait figcaption {
+    font-size: 9px;
+    letter-spacing: 0.02em;
+  }
+  .hero-bottom {
+    flex-wrap: wrap;
+    font-size: 9px;
+    gap: 6px 18px;
+  }
+  .hero-bottom > span:first-child {
+    max-width: none;
+    width: 100%;
+  }
+  .hero-bottom .motion-toggle {
+    margin-left: auto;
+  }
+  .hero-meta-location,
+  .hero-explore,
+  .eyebrow {
+    font-size: 10px;
+  }
+  .hero-meta {
+    flex-wrap: wrap;
+  }
+  .care-principles .metric dt {
+    font-size: 13px;
+  }
+  .care-principles .metric dd span {
+    font-size: 11px;
+  }
+  .h2 {
+    font-size: clamp(3rem, 12vw, 4.5rem);
+  }
+  .dir {
+    min-height: 280px;
+  }
+}

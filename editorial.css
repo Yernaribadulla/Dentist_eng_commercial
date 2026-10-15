@@ -5,31 +5,31 @@
   margin-bottom: 24px;
 }
 :root {
-  --bg: #f5f3ed;
-  --surface: #fcfbf7;
-  --ink: #203f43;
-  --ink-2: #415658;
-  --muted: #617171;
-  --line: #203f432b;
-  --accent: #2c686c;
-  --serif: "Spectral", Georgia, serif;
+  --bg: #f4efe7;
+  --surface: #fffaf4;
+  --ink: #442a2d;
+  --ink-2: #5b4b49;
+  --muted: #74635d;
+  --line: #442a2d2b;
+  --accent: #813b44;
+  --serif: "Instrument Serif", Georgia, serif;
 }
 [data-theme="dark"] {
-  --bg: #0d191e;
-  --surface: #14252b;
+  --bg: #20191a;
+  --surface: #2b2223;
   --ink: #f1eee5;
   --ink-2: #c0cfcf;
   --muted: #a6b9b9;
   --line: #e4eeec30;
-  --accent: #a0d6cd;
+  --accent: #e9b6aa;
 }
 .band-dark {
-  --bg: #142e33;
-  --surface: #1b3b40;
+  --bg: #44272c;
+  --surface: #513238;
   --ink: #f2f1e9;
   --ink-2: #c4d3d2;
   --muted: #a8bebb;
-  --accent: #aedbd2;
+  --accent: #f0c2b1;
 }
 [data-theme="dark"] .band-dark {
   --bg: #10252a;
