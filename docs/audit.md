@@ -51,3 +51,10 @@
 - Disclosed the preview-only flow next to the primary action and changed booking labels to planning labels.
 - Restored all seven section links at desktop widths of 1280px and above. Kept the compact primary navigation on smaller desktops.
 - Added regression checks for mobile introduction layout, opaque header, and desktop navigation overlap.
+
+## Comparison motion and dark-theme palette
+
+- Added matching 160 ms transitions to the image mask and divider. Reduced-motion and pause settings disable both transitions.
+- Added keyboard-accessible buttons for each full image and the split view; synchronized selected state with the native range.
+- Replaced the leftover teal technology background with warm plum, and updated secondary text and browser theme colors.
+- Validation: 8 unit tests and 22 browser tests passed, including comparison controls, reduced motion, theme colors, and accessibility.

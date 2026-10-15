@@ -18,21 +18,23 @@
   --bg: #20191a;
   --surface: #2b2223;
   --ink: #f1eee5;
-  --ink-2: #c0cfcf;
-  --muted: #a6b9b9;
-  --line: #e4eeec30;
+  --ink-2: #d3c6bf;
+  --muted: #bcaea7;
+  --line: #eee4dc30;
   --accent: #e9b6aa;
 }
 .band-dark {
   --bg: #44272c;
   --surface: #513238;
   --ink: #f2f1e9;
-  --ink-2: #c4d3d2;
-  --muted: #a8bebb;
+  --ink-2: #e1cfca;
+  --muted: #cfb8b0;
+  --line: #eee4dc30;
   --accent: #f0c2b1;
 }
 [data-theme="dark"] .band-dark {
-  --bg: #10252a;
+  --bg: #302225;
+  --surface: #3b2b2f;
 }
 .btn,
 .icon-btn,

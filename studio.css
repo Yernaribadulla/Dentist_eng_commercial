@@ -355,6 +355,63 @@ html {
 }
 
 /* Usability review: readable details, honest CTAs, compact mobile flow. */
+.compare .layer-before {
+  transition: clip-path 160ms ease-out;
+}
+.compare .handle {
+  transition: left 160ms ease-out;
+}
+.compare-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 20px;
+}
+.compare-controls p {
+  font-size: 14px;
+  color: var(--ink-2);
+}
+.compare-buttons {
+  display: flex;
+  gap: 6px;
+}
+.compare-buttons button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 3px;
+  background: var(--surface);
+  color: var(--ink);
+  padding: 10px 16px;
+  font: 500 13px/1.4 var(--sans);
+}
+.compare-buttons button:hover {
+  border-color: var(--ink);
+}
+.compare-buttons button[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--bg);
+}
+@media (max-width: 700px) {
+  .compare-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .compare-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .compare-buttons button {
+    padding-inline: 8px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .compare .layer-before,
+  .compare .handle {
+    transition: none;
+  }
+}
 .topbar,
 .topbar.scrolled {
   background: var(--bg);

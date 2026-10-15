@@ -10,7 +10,7 @@
       name="description"
       content="DENTARA — precision dentistry designed around you."
     />
-    <meta name="theme-color" content="#f5f3ed" />
+    <meta name="theme-color" content="#f4efe7" />
     <title>DENTARA — Precision Dentistry</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -653,15 +653,19 @@
             <div
               class="layer layer-after"
               role="img"
-              aria-label="Editorial smile image, second view"
+              aria-label="Clear aligner on a black background"
             ></div>
             <div
               class="layer layer-before"
               role="img"
-              aria-label="Editorial smile image, first view"
+              aria-label="Blue digital model of teeth"
             ></div>
-            <span class="cmp-tag cmp-before" aria-hidden="true">View one</span>
-            <span class="cmp-tag cmp-after" aria-hidden="true">View two</span>
+            <span class="cmp-tag cmp-before" aria-hidden="true"
+              >Digital model</span
+            >
+            <span class="cmp-tag cmp-after" aria-hidden="true"
+              >Clear aligner</span
+            >
             <div class="handle" aria-hidden="true">
               <span class="grip"
                 ><svg class="i"><use href="#i-chevs" /></svg
@@ -674,8 +678,38 @@
               max="100"
               step="1"
               value="52"
-              aria-label="Compare two editorial smile images"
+              aria-label="Compare the digital model and clear aligner"
             />
+          </div>
+          <div
+            class="compare-controls wrap"
+            role="group"
+            aria-label="Image comparison views"
+          >
+            <p>Drag the handle or choose a view.</p>
+            <div class="compare-buttons">
+              <button
+                type="button"
+                data-compare-position="100"
+                aria-pressed="false"
+              >
+                Digital model
+              </button>
+              <button
+                type="button"
+                data-compare-position="52"
+                aria-pressed="true"
+              >
+                Both views
+              </button>
+              <button
+                type="button"
+                data-compare-position="0"
+                aria-pressed="false"
+              >
+                Clear aligner
+              </button>
+            </div>
           </div>
         </div>
       </section>

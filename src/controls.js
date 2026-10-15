@@ -23,7 +23,7 @@ export function initTheme() {
     });
     document
       .querySelector('meta[name="theme-color"]')
-      ?.setAttribute("content", theme === "dark" ? "#0d191e" : "#f5f3ed");
+      ?.setAttribute("content", theme === "dark" ? "#20191a" : "#f4efe7");
   };
   buttons.forEach((button) =>
     button.addEventListener("click", () =>
@@ -181,11 +181,24 @@ export function initGallery() {
 export function initComparison() {
   const compare = document.querySelector("[data-compare]");
   const input = compare.querySelector("input");
+  const buttons = document.querySelectorAll("[data-compare-position]");
   const update = () => {
     const value = clampPosition(input.value);
     compare.style.setProperty("--pos", String(value));
-    input.setAttribute("aria-valuetext", `${value}% of view one visible`);
+    input.setAttribute("aria-valuetext", `${value}% of digital model visible`);
+    buttons.forEach((button) =>
+      button.setAttribute(
+        "aria-pressed",
+        String(Number(button.dataset.comparePosition) === value),
+      ),
+    );
   };
+  buttons.forEach((button) =>
+    button.addEventListener("click", () => {
+      input.value = button.dataset.comparePosition;
+      update();
+    }),
+  );
   input.addEventListener("input", update);
   update();
 }

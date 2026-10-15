@@ -157,6 +157,62 @@ test("native comparison range has exact keyboard increments without post-click d
   await input.press("End");
   await expect(input).toHaveValue("100");
 });
+test("comparison offers full-image views and keeps controls synchronized", async ({
+  page,
+}) => {
+  await ready(page);
+  const controls = page.getByRole("group", { name: "Image comparison views" });
+  for (const [name, position] of [
+    ["Digital model", "100"],
+    ["Clear aligner", "0"],
+    ["Both views", "52"],
+  ]) {
+    const button = controls.getByRole("button", { name, exact: true });
+    await button.click();
+    await expect(page.locator(".cmp-input")).toHaveValue(position);
+    await expect(page.locator("[data-compare]")).toHaveCSS("--pos", position);
+    await expect(button).toHaveAttribute("aria-pressed", "true");
+    await expect(controls.locator('[aria-pressed="true"]')).toHaveCount(1);
+  }
+  await page.locator(".cmp-input").focus();
+  await page.locator(".cmp-input").press("ArrowRight");
+  await expect(controls.locator('[aria-pressed="true"]')).toHaveCount(0);
+});
+
+test("comparison smooths motion and respects reduced motion", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await ready(page);
+  await expect(page.locator(".handle")).toHaveCSS(
+    "transition-duration",
+    "0.16s",
+  );
+  await expect(page.locator(".layer-before")).toHaveCSS(
+    "transition-duration",
+    "0.16s",
+  );
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await expect(page.locator(".handle")).toHaveCSS("transition-duration", "0s");
+  await expect(page.locator(".layer-before")).toHaveCSS(
+    "transition-duration",
+    "0s",
+  );
+});
+
+test("technology uses a warm background in both themes", async ({ page }) => {
+  await ready(page);
+  await expect(page.locator("#technology")).toHaveCSS(
+    "background-color",
+    "rgb(68, 39, 44)",
+  );
+  await page.locator("[data-theme-toggle]").first().click();
+  await expect(page.locator("#technology")).toHaveCSS(
+    "background-color",
+    "rgb(48, 34, 37)",
+  );
+});
+
 test("accordions keep hidden controls inert and smile options update", async ({
   page,
 }) => {
