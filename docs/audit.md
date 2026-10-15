@@ -41,3 +41,13 @@
 Настоящий приём заявок не подключён: нет сервера и проверенных контактов клиники. Это явно обозначено в форме и документации. Формулировки/цены макета не являются клиническим предложением; редакционное сравнение не выдаётся за результаты пациентов.
 
 Микросервисы не добавлены: для текущей статической страницы полезнее модульный frontend. Ручная проверка Safari/Firefox, реальные мобильные устройства и длительные измерения FPS не выполнялись. Автоматический axe не заменяет полную экспертную проверку доступности.
+
+## UI review after the studio redesign
+
+- Replaced the abstract hero slogan with the service category and a shorter headline; reduced the type size and excess vertical space.
+- Stacked section headings and descriptions below 700px. The previous two-column layout squeezed mobile descriptions into narrow text strips.
+- Made the sticky mobile header opaque in its initial and scrolled states.
+- Used sans-serif text for treatment names and descriptions, increased prices and captions, and expanded the mobile consultation action.
+- Disclosed the preview-only flow next to the primary action and changed booking labels to planning labels.
+- Restored all seven section links at desktop widths of 1280px and above. Kept the compact primary navigation on smaller desktops.
+- Added regression checks for mobile introduction layout, opaque header, and desktop navigation overlap.

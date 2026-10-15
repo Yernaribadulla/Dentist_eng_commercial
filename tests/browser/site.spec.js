@@ -235,6 +235,37 @@ for (const width of [320, 390, 768, 1024, 1440]) {
     await expect(page.locator("#services-title")).toBeInViewport();
   });
 }
+test("mobile treatment introduction stacks and the sticky header stays opaque", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await ready(page);
+  const title = await page.locator("#services-title").boundingBox();
+  const note = await page.locator("#services .head-note").boundingBox();
+  expect(note.y).toBeGreaterThanOrEqual(title.y + title.height);
+  await page.locator("#services").scrollIntoViewIfNeeded();
+  await expect(page.locator(".topbar")).toHaveCSS(
+    "background-color",
+    "rgb(244, 239, 231)",
+  );
+});
+
+test("desktop navigation exposes every section without overlapping controls", async ({
+  page,
+}) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await ready(page);
+  for (const link of await page.locator(".rail-nav a").all())
+    await expect(link).toBeVisible();
+  const brand = await page.locator(".brand-v").boundingBox();
+  const nav = await page.locator(".rail-nav").boundingBox();
+  const theme = await page.locator(".rail > .icon-btn").boundingBox();
+  const cta = await page.locator(".float-cta").boundingBox();
+  expect(brand.x + brand.width).toBeLessThan(nav.x);
+  expect(nav.x + nav.width).toBeLessThan(theme.x);
+  expect(theme.x + theme.width).toBeLessThan(cta.x);
+});
+
 test("all requested local assets resolve without errors", async ({ page }) => {
   const failures = [];
   page.on("response", (response) => {
