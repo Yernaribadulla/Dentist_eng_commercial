@@ -58,3 +58,10 @@
 - Added keyboard-accessible buttons for each full image and the split view; synchronized selected state with the native range.
 - Replaced the leftover teal technology background with warm plum, and updated secondary text and browser theme colors.
 - Validation: 8 unit tests and 22 browser tests passed, including comparison controls, reduced motion, theme colors, and accessibility.
+
+## Opening animation
+
+- Added first-paint CSS entrances for the hero image, heading, description, and actions, with a short stagger and a total duration around 1.1 seconds.
+- Prevented the hero from flashing visible before JavaScript initializes scroll reveals.
+- Restored a saved motion pause in the head before first paint. System reduced motion also disables opening animations.
+- Validation: 8 unit tests passed; all 23 browser scenarios passed (the opening regression was rerun after correcting its handling of unrelated infinite animations).

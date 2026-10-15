@@ -322,6 +322,46 @@ test("desktop navigation exposes every section without overlapping controls", as
   expect(theme.x + theme.width).toBeLessThan(cta.x);
 });
 
+test("opening animates the hero and honors saved and system motion preferences", async ({
+  page,
+}) => {
+  await page.emulateMedia({ reducedMotion: "no-preference" });
+  await ready(page);
+  await expect(page.locator(".hero .display")).toHaveCSS(
+    "animation-name",
+    "opening-rise",
+  );
+  await expect(page.locator(".hero-portrait")).toHaveCSS(
+    "animation-name",
+    "opening-photo",
+  );
+  await page.locator(".hero").evaluate((hero) => {
+    hero
+      .getAnimations({ subtree: true })
+      .filter((animation) =>
+        Number.isFinite(animation.effect.getComputedTiming().endTime),
+      )
+      .forEach((animation) => animation.finish());
+  });
+  await expect(page.locator(".hero .display")).toHaveCSS("opacity", "1");
+  await expect(page.locator(".hero .actions")).toHaveCSS("opacity", "1");
+  await page.evaluate(() => localStorage.setItem("dentara-motion", "off"));
+  await page.reload();
+  await expect(page.locator(".hero .display")).toHaveCSS(
+    "animation-name",
+    "none",
+  );
+  await expect(page.locator(".hero .display")).toHaveCSS("opacity", "1");
+  await page.evaluate(() => localStorage.removeItem("dentara-motion"));
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await page.reload();
+  await expect(page.locator(".hero-portrait")).toHaveCSS(
+    "animation-name",
+    "none",
+  );
+  await expect(page.locator(".hero .actions")).toHaveCSS("opacity", "1");
+});
+
 test("all requested local assets resolve without errors", async ({ page }) => {
   const failures = [];
   page.on("response", (response) => {

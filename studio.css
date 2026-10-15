@@ -1,4 +1,67 @@
 /* DENTARA studio: warm paper, wine ink, and square image windows. */
+/* Start on the first CSS paint, before module initialization, to avoid a visible
+   page flashing into hidden reveal states. Scroll reveals still handle the rest. */
+.hero [data-reveal],
+html.js .hero [data-reveal],
+html.js .hero [data-reveal="lines"] .ln > span {
+  opacity: 1;
+  transform: none;
+  clip-path: none;
+  transition: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  html:not(.motion-paused) .hero-meta,
+  html:not(.motion-paused) .hero-bottom {
+    animation: opening-fade 700ms ease-out both;
+  }
+  html:not(.motion-paused) .hero .eyebrow {
+    animation: opening-rise 650ms var(--ease) 60ms both;
+  }
+  html:not(.motion-paused) .hero .display {
+    animation: opening-rise 900ms var(--ease) 100ms both;
+  }
+  html:not(.motion-paused) .hero .lead {
+    animation: opening-rise 750ms var(--ease) 220ms both;
+  }
+  html:not(.motion-paused) .hero .actions {
+    animation: opening-rise 700ms var(--ease) 320ms both;
+  }
+  html:not(.motion-paused) .hero-disclaimer,
+  html:not(.motion-paused) .hero-assurance {
+    animation: opening-fade 700ms ease-out 400ms both;
+  }
+  html:not(.motion-paused) .hero-portrait {
+    animation: opening-photo 1100ms var(--ease) both;
+  }
+}
+@keyframes opening-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes opening-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes opening-photo {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
 :root {
   --sans: "DM Sans", "Segoe UI", sans-serif;
   --on-accent: #fffaf4;

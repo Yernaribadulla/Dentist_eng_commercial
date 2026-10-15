@@ -25,6 +25,9 @@
           t = null;
         try {
           t = localStorage.getItem("dentara-theme");
+          if (localStorage.getItem("dentara-motion") === "off") {
+            d.classList.add("motion-paused");
+          }
         } catch (e) {}
         if (t !== "dark" && t !== "light") {
           t = matchMedia("(prefers-color-scheme: dark)").matches
