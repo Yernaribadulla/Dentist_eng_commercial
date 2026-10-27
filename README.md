@@ -1,5 +1,15 @@
 # DENTARA — Considered care
 
+## DENTARA template edition
+
+A separately packaged HTML/CSS/JavaScript edition for developers and small agencies is being reviewed by Codester. It includes original SVG artwork (no photographs), system fonts, central branding/contact/booking-link settings, English documentation and additional release checks.
+
+**[Template details and live demo](https://dentara-template-yernar.earlycow20.chatgpt.site/template/?utm_source=github&utm_medium=readme&utm_campaign=dentara_launch)** · [External booking setup guide](https://dentara-template-yernar.earlycow20.chatgpt.site/guide/)
+
+Planned base price: **$19 plus the marketplace buyer fee**, subject to approval. Purchase is not available yet. The marketplace listing will govern licensing. This public repository documents the original concept; its files differ from the commercial release. Neither version is an appointment management system.
+
+![DENTARA template edition](https://dentara-template-yernar.earlycow20.chatgpt.site/marketing/social-1200x630.png)
+
 Англоязычный концепт коммерческого сайта стоматологии. Редакционная композиция, кремовая палитра с бордовыми акцентами, архитектурная фотография, светлая/тёмная темы и плавные интерактивные переходы.
 
 [Открыть сайт](https://yernaribadulla.github.io/Dentist_eng_commercial/) · [Архитектура](docs/architecture.md) · [Отчёт проверки](docs/audit.md)
@@ -106,3 +116,4 @@ GitHub Actions выполняет форматирование, unit- и бра�
 Для настоящей записи сначала подключите проверенный сервер обработки обращений, реальные контакты, график, условия обработки данных и подтверждённое содержимое услуг. Состояние «запрос принят» должно появляться только после успешного ответа сервера и не означать автоматически подтверждённое время приёма. Текущий режим намеренно остаётся локальным превью.
 
 Автор: [Yernar Ibadulla](https://github.com/Yernaribadulla).
+
